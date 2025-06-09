@@ -23,7 +23,7 @@ namespace PVS_Studio_Demo
                     numbers[i] = i * 10;
                     Console.WriteLine($"Number at index {i}: {numbers[i]}");
                 }
-                catch (Exception) { /* Ignorando error silenciosamente */ }
+                catch (Exception) {}
             }
             
             // Desbordamiento de entero en un bucle

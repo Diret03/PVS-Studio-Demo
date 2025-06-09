@@ -8,74 +8,69 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Runtime.InteropServices;
+using System.Collections.Specialized;
 
 namespace PVS_Studio_Demo
 {
     internal class Program
     {
-        private static int counter; // Variable de clase no inicializada
+        private static int counter; 
         private static List<string> data;
         private static readonly Random random = new Random();
-        
+
         static void Main(string[] args)
         {
-            // referencia nula
-            data = null;
-            Console.WriteLine($"Data count: {data.Count}"); 
-            
-            // Código inalcanzable después del retorno
-            if (args.Length > 0)
-                return;
-            Console.WriteLine("This will never be reached if args exist");
-            
-            // Uso de variable no inicializada
-            int value;
-            if (random.Next(0, 10) > 5)
-                value = 10;
-            Console.WriteLine($"Value is: {value}"); // value podría no estar inicializada
-            
-            // Potencial desbordamiento de entero
+
+            // se realiza el mismo codigo en ambas condiciones
+            if (counter == 0)
+                counter = 1;
+            else
+                counter = 1;
+
+            // punto y coma al final de la sentencia for
+            for (int i = 0; i < 10; i++) ;
+            {
+                if (data == null)
+                    data = new List<string>();
+                data.Add("Item " + i);
+            }
+
+            // desbordamiento de entero
             int maxInt = int.MaxValue;
-            int overflowResult = maxInt + 1; // Desbordamiento
-            Console.WriteLine($"Result: {overflowResult}");
-            
-           
+            int overflowResult = maxInt + 1; 
+            Console.WriteLine($"Resultado: {overflowResult}");
+
+
+
+
             int a = 5;
             int b = 10;
+            // la condicion siempre es verdadera
             if (a > 3)
                 b = b + a;
-            if (a > 4)
-                b = b + a; 
-                
-            // Condición redundante
-            if (a == 5 && a > 0 && a == 5)
-            {
-                Console.WriteLine("Redundant condition");
-            }
-            
-            MethodWithUnusedParameter(42, "Unused");
-            
-            // Llamar a otro código problemático
-            var math = new MathOperations();
-            math.PerformOperations();
-            
-            var resources = new ResourceManager();
-            resources.UseResources();
-            
-            var threading = new ThreadingIssues();
-            threading.DemonstrateIssues();
-            
-            var stringOps = new StringManipulation();
-            stringOps.ManipulateStrings();
-            
-            Console.ReadKey();
+
+            //string upperWord = converToUppercase("codigo");
+          
+
         }
-        
-        // Método con parámetro no utilizado
-        static void MethodWithUnusedParameter(int used, string unused)
+
+
+        public static string converToUppercase(string word) 
         {
-            Console.WriteLine($"Used parameter: {used}");
-            // 'unused' nunca se utiliza
+            if (word.Length <= 0)
+            {
+                // falta throw para lanzar una excepción
+                new ArgumentOutOfRangeException();
+
+            }
+            else {
+                
+                return word.ToUpper();
+            }
+
         }
+
+     
     }
 }
