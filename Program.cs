@@ -21,13 +21,14 @@ namespace PVS_Studio_Demo
 
         static void Main(string[] args)
         {
-
+            //ERROR 1------------------------------------------------------------------------------------------------
             // se realiza el mismo codigo en ambas condiciones
             if (counter == 0)
                 counter = 1;
             else
                 counter = 1;
 
+            //ERROR 2------------------------------------------------------------------------------------------------
             // punto y coma al final de la sentencia for
             for (int i = 0; i < 10; i++) ;
             {
@@ -36,6 +37,7 @@ namespace PVS_Studio_Demo
                 data.Add("Item " + i);
             }
 
+            //ERROR 3------------------------------------------------------------------------------------------------
             // desbordamiento de entero
             int maxInt = int.MaxValue;
             int overflowResult = maxInt + 1; 
@@ -43,7 +45,7 @@ namespace PVS_Studio_Demo
 
 
 
-
+            //ERROR 4------------------------------------------------------------------------------------------------
             int a = 5;
             int b = 10;
             // la condicion siempre es verdadera
@@ -55,7 +57,7 @@ namespace PVS_Studio_Demo
 
         }
 
-
+        //ERROR 5------------------------------------------------------------------------------------------------
         public static string converToUppercase(string word) 
         {
             if (word.Length <= 0)
